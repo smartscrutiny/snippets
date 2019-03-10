@@ -16,28 +16,29 @@ get_header(); ?>
 		<div id="content">
 
 			<?php query_posts('cat=132'); //category of posts to show
-         $counter = 0; //set counter to zero to start
-         ?>
+			 $counter = 0; //set counter to zero to start
+			 ?>
 
-         <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+			 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
-            <?php if ($counter < 5) : ?> <!-- Page will show 5 post titles before showing an ad. You can change this integer. -->
+			    <?php if ($counter < 5) : ?> <!-- Page will show 5 post titles before showing an ad. You can change this integer. -->
 
-               <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-               <hr>
-               <?php $counter = $counter+1; ?> <!-- Counting posts... -->
+			       <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+			       <hr>
+			       <?php $counter = $counter+1; ?> <!-- Counting posts... -->
 
-            <?php else : ?>
-               <div class="custom-adsense">
-                  Your Google ad goes here.
-                  <hr>
-               </div>
-               <?php $counter = 0; ?> <!-- Page will start counting posts from 0 again -->
+			    <?php else : ?>
+			
+			       <div class="custom-adsense">
+				  Your Google ad goes here.
+				  <hr>
+			       </div>
+			       <?php $counter = 0; ?> <!-- Page will start counting posts from 0 again -->
 
-            <?php endif; ?>
+			    <?php endif; ?>
 
-         <?php endwhile; endif; ?>
-         <?php wp_reset_query(); ?>
+			 <?php endwhile; endif; ?>
+			 <?php wp_reset_query(); ?>
 
 		</div><!-- #content -->
 
